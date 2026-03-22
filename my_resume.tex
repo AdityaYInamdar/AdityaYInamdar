@@ -1,0 +1,147 @@
+%-------------------------
+% Resume in Latex
+% Author : Aditya Inamdar
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[pdftex]{hyperref}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.375in}
+\addtolength{\evensidemargin}{-0.375in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[2]{
+  \item\small{
+    \textbf{#1}{: #2 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[label=\textbullet]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+\begin{document}
+
+%----------HEADING-----------------
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+  \textbf{\Large Aditya Inamdar} & Email: \href{mailto:aditya.inamdar10@gmail.com}{aditya.inamdar10@gmail.com} \\
+  Pune, India & Mobile: +91 8329460483 \\
+  \href{https://adityayinamdar.github.io/AdityaYInamdar/}{Portfolio} \;|\;
+  \href{https://github.com/AdityaYInamdar}{GitHub} \;|\;
+  \href{https://www.linkedin.com/in/adityyinamdar}{LinkedIn} & \\
+\end{tabular*}
+
+%-----------SUMMARY-----------------
+\section{Summary}
+Software Engineer with \textbf{3+ years} of experience building production systems across the full stack. Shipped FastAPI backends, React/TypeScript frontends, PostgreSQL schemas, and AWS infrastructure in real production environments while maintaining reliability and uptime. Strong in Python and backend API design, with hands-on experience owning complete feature delivery from DB schema to deployed UI. Core stack: Python, FastAPI, React, PostgreSQL, Redis, AWS.
+
+%-----------SKILLS-----------------
+\section{Technical Skills}
+ \resumeSubHeadingListStart
+   \item{
+     \textbf{Languages}{: Python, JavaScript, TypeScript, SQL} \\
+     \textbf{Frameworks \& Libraries}{: FastAPI, React, SQLAlchemy, Pydantic, pytest, Uvicorn} \\
+     \textbf{Databases}{: PostgreSQL, MySQL, Redis, Supabase} \\
+     \textbf{Cloud \& Infrastructure}{: Amazon Web Services (EC2, S3, IAM), Docker, Nginx, Cloudflare} \\
+     \textbf{APIs \& Architecture}{: REST APIs, WebSockets, OAuth2, JWT, Role-Based Access Control (RBAC), Full Stack Development, Microservices} \\
+     \textbf{Tools \& Practices}{: Git, GitHub Actions (CI/CD), Unit Testing, Integration Testing, Code Review, Agile, Linux Server Administration, Structured Logging}
+   }
+ \resumeSubHeadingListEnd
+
+%-----------EXPERIENCE-----------------
+\section{Work Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Metron Security}{Pune, India}
+      {Software Engineer}{Jun 2025 -- Present}
+      \resumeItemListStart
+        \resumeItem{Third-Party API Integrations}
+          {Built Python services that connect to 5+ external security platform REST APIs, each with different auth schemes (OAuth2 and API keys), response schemas, and failure modes. Wrote a shared transformation layer so new integrations slot in without touching existing pipelines. Added retry logic with exponential backoff to handle upstream timeouts and partial failures.}
+        \resumeItem{Observability \& Production Systems}
+          {Services run on AWS EC2 and S3. Set up structured JSON logging from day one so log queries stay fast and readable. Wired health-check endpoints into the alerting pipeline so the team catches issues in minutes rather than waiting for a user report.}
+        \resumeItem{CI/CD \& Code Quality}
+          {Set up GitHub Actions pipelines that block merges if tests fail or coverage drops. Created code review conventions alongside this and caught an entire class of integration edge-case bugs before they ever reached production.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Integrated Active Monitoring}{Pune, India}
+      {Full Stack Engineer}{Nov 2022 -- Jun 2025}
+      \resumeItemListStart
+        \resumeItem{Production ERP – Full Stack Ownership}
+          {Owned every layer of a production ERP (DB schema, FastAPI backend, React frontend, and deployment), used daily by \textbf{100+ field engineers} for 2.5 years. Built the whole system from scratch: 30+ modules covering task orchestration, ticket lifecycle management, and real-time operational data, processing 50+ operations per day without downtime.}
+        \resumeItem{React Frontend \& Full Stack Delivery}
+          {Built the React/TypeScript frontend for the ERP. The UI had role-gated views, paginated data tables, and live status updates over WebSockets. Owned complete feature delivery from DB schema and FastAPI endpoint through to the React component and deployment, so nothing fell through the cracks between layers.}
+        \resumeItem{REST API Design \& Architecture}
+          {Wrote 20+ FastAPI endpoints using a three-layer architecture (router, service, repository). p95 response time stays under 200ms. The structure meant adding a new ERP module required only a new service class and router file, with no changes needed elsewhere.}
+        \resumeItem{Database Performance}
+          {Some reports were taking 8+ seconds under peak load. Ran EXPLAIN ANALYZE, found missing indexes and two N+1 patterns in the ORM layer. Fixed both without schema changes that could have broken existing data. The same queries now complete in under 3 seconds, roughly \textbf{60\% faster}.}
+        \resumeItem{Caching \& Performance}
+          {Dashboard endpoints were querying the DB on every single page load. Added Redis caching for aggregations and lookup tables. DB load dropped about \textbf{40\%} and those endpoints went from \textasciitilde{}800ms down to under 200ms.}
+        \resumeItem{Auth, RBAC \& Code Quality}
+          {JWT auth with a 3-role permission model (admin, manager, field engineer). Every endpoint has an explicit permission check rather than blanket middleware. Zero access control incidents across 2.5 years. Wrote pytest unit and integration tests to 90\%+ coverage on core logic, and refactored \textasciitilde{}3,000 lines of the original procedural codebase into the service layer. This type of foundational refactoring significantly reduces delivery time for every subsequent feature.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------------
+\section{Projects}
+  \resumeSubHeadingListStart
+
+    \resumeItem{ProctorHire -- Full Stack Remote Interview Platform}
+      {Full-stack technical interview platform built from scratch and live in production at \href{https://proctorhire.com}{proctorhire.com}. Backend in FastAPI (Python), frontend in React and TypeScript, database in PostgreSQL via Supabase, deployed on a self-managed Hetzner VPS behind Nginx. Supports 5 evaluation types (Python, SQL, JavaScript, MCQ, Descriptive) with sandboxed in-browser code execution in isolated runtimes. Real-time proctoring over WebSockets with sub-100ms event propagation. JWT-based RBAC for three roles (admin, recruiter, candidate), automated and manual grading pipelines, and paginated candidate management.}
+
+    \resumeItem{Query Reports -- Parameterized SQL Reporting Engine}
+      {Backend reporting tool that runs parameterized SQL queries safely against production databases and returns structured CSV and JSON datasets through a REST API. Security was the primary design constraint: parameterized binding throughout, input validation, and query sandboxing to block injection. In active production use by the operations team at Integrated Active Monitoring. \href{https://github.com/AdityaYInamdar/query-reports}{GitHub} \; | \; \href{https://efsr.smart-iam.com/query-reports-demo}{Live Demo}}
+
+  \resumeSubHeadingListEnd
+
+%-----------EDUCATION-----------------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Vishwakarma Institute of Technology}{Pune, India}
+      {Bachelor of Technology -- Mechanical Engineering, CGPA: 8.57/10}{2020 -- 2024}
+  \resumeSubHeadingListEnd
+
+\end{document}
