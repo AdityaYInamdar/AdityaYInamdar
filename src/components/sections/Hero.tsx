@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
-import Image from 'next/image';
+
 
 const TECH_STACK = ['Python', 'FastAPI', 'React', 'TypeScript', 'PostgreSQL', 'Redis', 'AWS', 'Docker'];
 
@@ -299,13 +299,11 @@ export default function Hero() {
                 border: '1px solid var(--border)',
               }}
             >
-              <Image
-                src="/profile-no-bg.jpeg"
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/AdityaYInamdar/profile-no-bg.jpeg"
                 alt="Aditya Inamdar"
-                fill
-                priority
-                sizes="(max-width: 1024px) 0px, 400px"
-                style={{ objectFit: 'cover', objectPosition: 'center top' }}
+                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }}
               />
               {/* Gradient overlay at bottom */}
               <div
