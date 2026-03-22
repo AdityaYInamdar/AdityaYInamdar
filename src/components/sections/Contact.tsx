@@ -133,7 +133,7 @@ export default function Contact() {
               >
                 {link.label}
               </span>
-              <span style={{ fontSize: '0.875rem', fontWeight: 500, color: 'var(--text-secondary)' }}>
+              <span style={{ fontSize: '0.875rem', fontWeight: 500, color: 'var(--text-secondary)', wordBreak: 'break-all' }}>
                 {link.value}
               </span>
             </a>
