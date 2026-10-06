@@ -1,34 +1,34 @@
-import type { Metadata } from "next";
-import { Inter, Sofia_Sans_Condensed } from "next/font/google";
-import "./globals.css";
+import type { Metadata, Viewport } from 'next';
+import { profile } from '@/content';
+import './globals.css';
 
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
-const sofia = Sofia_Sans_Condensed({
-  subsets: ["latin"],
-  weight: ["700", "900"],
-  variable: "--font-sofia",
-  display: "swap",
-});
+const description = `${profile.name}, ${profile.title.toLowerCase()} in ${profile.location}. ${profile.summary}`;
 
 export const metadata: Metadata = {
-  title: "Aditya Inamdar — Software Engineer",
-  description:
-    "Backend Engineer and Full Stack Developer building production systems with Python, FastAPI, React, and AWS.",
+  metadataBase: new URL(profile.siteUrl),
+  title: `${profile.name}, ${profile.title}`,
+  description,
+  alternates: { canonical: '/' },
+  openGraph: {
+    type: 'profile',
+    title: `${profile.name}, ${profile.title}`,
+    description,
+    url: profile.siteUrl,
+    images: [{ url: 'headshot.jpg', width: 480, height: 480, alt: profile.name }],
+  },
+  twitter: { card: 'summary' },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+    { media: '(prefers-color-scheme: dark)', color: '#121212' },
+  ],
+};
+
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${sofia.variable}`}>
+    <html lang="en">
       <body>{children}</body>
     </html>
   );
