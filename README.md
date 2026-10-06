@@ -4,7 +4,7 @@ I'm a senior software engineer in Pune, India. I've spent 3+ years shipping prod
 
 - Senior Software Engineer at **Metron Security**, building LLM-powered delivery automation.
 - Building **[ProctoHire](https://proctohire.com)**, my own proctored assessment and hiring platform.
-- Freelancing for Indian and UK clients, including an iOS cricket coaching app awaiting App Store approval.
+- Freelancing for Indian and UK clients, including an iOS cricket coaching app.
 
 **Website:** [adityayinamdar.github.io/AdityaYInamdar](https://adityayinamdar.github.io/AdityaYInamdar/) · **Résumé:** [PDF](https://adityayinamdar.github.io/AdityaYInamdar/Aditya_Inamdar_Resume.pdf) · **LinkedIn:** [adityyinamdar](https://www.linkedin.com/in/adityyinamdar) · **Email:** [aditya.inamdar10@gmail.com](mailto:aditya.inamdar10@gmail.com)
 
