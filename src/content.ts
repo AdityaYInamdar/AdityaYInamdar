@@ -143,12 +143,6 @@ export const otherProjects: Project[] = [
     summary: 'Android ride-sharing app with PostGIS matching of where riders join and leave a host’s route.',
   },
   {
-    name: 'Multi-View Data Explorer',
-    period: 'Mar 2026',
-    links: [{ label: 'GitHub', href: 'https://github.com/AdityaYInamdar/MultiViewDataExplorer' }],
-    summary: 'Synced table, chart and JSON views of one dataset, virtualized to stay fast at 1M+ rows.',
-  },
-  {
     name: 'Query Reports',
     period: '2025',
     links: [{ label: 'GitHub', href: 'https://github.com/AdityaYInamdar/query-reports' }],
