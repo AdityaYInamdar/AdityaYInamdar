@@ -35,7 +35,7 @@ export const profile = {
       text: 'Building ProctoHire, my own proctored assessment and hiring platform:',
       link: { label: 'proctohire.com', href: 'https://proctohire.com' },
     },
-    { text: 'Freelancing for Indian and UK clients, including an iOS app awaiting App Store approval.' },
+    { text: 'Freelancing for Indian and UK clients, including an iOS app for a UK cricket academy.' },
   ] as { text: string; link?: Link }[],
 };
 
@@ -105,7 +105,7 @@ export const featuredProjects: FeaturedProject[] = [
     period: 'Jul 2026 – Present',
     links: [{ label: 'jameelstuartcricketacademy.com', href: 'https://www.jameelstuartcricketacademy.com' }],
     summary:
-      'An iOS coaching app with coach, parent and player accounts, built around the academy’s player-development method, plus the academy’s website. Awaiting App Store approval.',
+      'An iOS coaching app with coach, parent and player accounts, built around the academy’s player-development method, plus the academy’s website.',
     points: [
       'Coaches log a session by typing or dictating one sentence, and AI drafts the rest; assessments feed a Skill Index compared before and after each 28-day block.',
       'Parents and players get notes, videos, homework and deep-linked push notifications; row-level security on every table keeps each family’s data private.',
