@@ -68,7 +68,7 @@ export const featuredProjects: FeaturedProject[] = [
     period: 'Live since 2026',
     links: [{ label: 'proctohire.com', href: 'https://proctohire.com' }],
     summary:
-      'A proctored assessment and hiring platform. Companies run technical tests and interviews, review integrity evidence, and move candidates from invite to offer. It is in production with paying customers and sent 743 candidate invitations in the 90 days to September 2026.',
+      'A proctored assessment and hiring platform. Companies run technical tests and interviews, review integrity evidence, and move candidates from invite to offer. It is live in production and sent 743 candidate invitations in the 90 days to September 2026.',
     points: [
       'Integrity engine: tab-switch, focus and copy-paste tracking, webcam and screen clips, server-side detection of pasted code from keystroke logs, and keystroke replay, combined into a 0–100 integrity score per attempt.',
       'MCQ, SQL, Python, JavaScript, C++, spreadsheet and descriptive questions; code runs against test cases in 22 languages. Gemini grades open-ended answers, generates tests and parses resumes.',
