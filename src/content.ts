@@ -127,6 +127,12 @@ export const clientWork: Project[] = [
     links: [{ label: 'varadguitar.com', href: 'https://varadguitar.com' }],
     summary: 'Lead funnel for a jazz guitar mentor: gated masterclass, email nurture, applications, Calendly.',
   },
+  {
+    name: 'Cravorii Indian Lounge & Bar',
+    period: '2026',
+    links: [{ label: 'cravorii.com', href: 'https://cravorii.com' }],
+    summary: 'Restaurant website in Bury, UK, with menus, a gallery and online table reservations.',
+  },
 ];
 
 export const otherProjects: Project[] = [
