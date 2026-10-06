@@ -17,17 +17,19 @@ export type FeaturedProject = Project & {
 
 export const profile = {
   name: 'Aditya Inamdar',
-  title: 'Full-Stack Software Engineer',
+  title: 'Senior Software Engineer',
+  focus: 'Applied AI, LLM agents and full-stack systems',
   location: 'Pune, India',
   siteUrl: 'https://adityayinamdar.github.io/AdityaYInamdar/',
+  resume: 'Aditya_Inamdar_Resume.pdf',
   email: 'aditya.inamdar10@gmail.com',
   phone: '+91 83294 60483',
   github: 'https://github.com/AdityaYInamdar',
   linkedin: 'https://www.linkedin.com/in/adityyinamdar',
   summary:
-    'I’ve spent nearly four years shipping production systems in Python, FastAPI, React and PostgreSQL. I take products from database schema to deployment, at my day job, for freelance clients in India and the UK, and for my own startup.',
+    'I’ve spent 3+ years shipping production systems and now focus on applied AI: agentic LLM workflows on the Claude, OpenAI and Gemini APIs, on a full-stack base of Python, FastAPI, React, PostgreSQL and AWS. Outside my day job I run my own hiring platform and build web and mobile products for clients in India and the UK.',
   now: [
-    { text: 'Software Engineer at Metron Security.' },
+    { text: 'Senior Software Engineer at Metron Security, building LLM-powered delivery automation.' },
     {
       text: 'Building ProctoHire, a proctored assessment and hiring platform:',
       link: { label: 'proctohire.com', href: 'https://proctohire.com' },
@@ -36,26 +38,35 @@ export const profile = {
   ] as { text: string; link?: Link }[],
 };
 
-export const experience = [
+export const experience: {
+  company: string;
+  role: string;
+  period: string;
+  note?: string;
+  points: string[];
+  stack: string[];
+}[] = [
   {
     company: 'Metron Security',
-    role: 'Software Engineer',
+    role: 'Senior Software Engineer',
     period: 'Jun 2025 – Present',
+    note: 'Promoted from Software Engineer in May 2026.',
     points: [
-      'Build Python services that integrate the REST APIs of 5+ security platforms (OAuth2 and API-key auth) through a shared transformation layer, so new integrations never touch existing pipelines.',
-      'Added retries with exponential backoff for upstream timeouts, plus structured JSON logging and health checks wired into alerting on AWS.',
-      'Set up GitHub Actions CI that blocks merges when tests fail or coverage drops.',
+      'Built a multi-stage, LLM-powered software delivery pipeline on the Anthropic Claude API that automates research, documentation, spec writing, validation and deployment, raising team productivity by 50–60%.',
+      'Designed an agentic system that routes natural-language commands to the right automation through tool calling and context-injected instructions, so non-technical teammates can run multi-step workflows end to end.',
+      'Codified reusable AI engineering workflows with Claude Code, custom Claude Skills and MCP integrations, cutting delivery time for each new automation.',
+      'Built Python integration services for a CrowdStrike-based security plugin platform across REST APIs with varied auth (OAuth2, API key, HMAC, AWS SigV4), with retries, structured logging and CI/CD on AWS.',
     ],
-    stack: ['Python', 'FastAPI', 'AWS (EC2, S3)', 'Docker', 'GitHub Actions'],
+    stack: ['Python', 'Claude API', 'Claude Code', 'MCP', 'FastAPI', 'AWS', 'Docker', 'GitHub Actions'],
   },
   {
     company: 'Integrated Active Monitoring',
     role: 'Full Stack Engineer',
     period: 'Nov 2022 – Jun 2025',
     points: [
-      'Built and owned a production ERP end to end (schema, FastAPI backend, React/TypeScript frontend, deployment) with 30+ modules, used daily by 100+ field engineers for 2.5 years.',
-      'Cut slow report queries by ~60% (8s to under 3s) by fixing missing indexes and N+1 ORM queries. Redis caching cut database load ~40% and brought dashboard endpoints from ~800ms to under 200ms.',
-      'Implemented JWT auth with role-based access for admins, managers and field engineers, with pytest coverage above 90% on core logic.',
+      'Owned every layer of a production ERP with 30+ modules used daily by 100+ field engineers (schema, FastAPI backend, React/TypeScript frontend, deployment), with zero downtime over 2.5 years.',
+      'Designed 40+ FastAPI endpoints on a three-layer architecture at p95 under 200ms. Fixed missing indexes and N+1 queries to cut report queries from 8s to under 3s, and added Redis caching that cut database load ~40%.',
+      'Implemented JWT auth with three-role RBAC (zero access-control incidents), drove pytest coverage above 90% on core logic, and refactored ~3,000 lines of procedural code into a service layer.',
     ],
     stack: ['Python', 'FastAPI', 'React', 'TypeScript', 'PostgreSQL', 'Redis', 'WebSockets'],
   },
@@ -75,6 +86,18 @@ export const featuredProjects: FeaturedProject[] = [
       'Multi-tenant SaaS with hiring pipelines (automatic stage moves, campus drives with bulk invites, one-way video interviews, online offer letters), signed webhooks and a public API.',
     ],
     stack: ['React', 'TypeScript', 'FastAPI', 'Socket.IO', 'PostgreSQL (Supabase)', 'Gemini API', 'Nginx', 'Hetzner', 'Cloudflare'],
+  },
+  {
+    name: 'JobPipe',
+    role: 'Personal project',
+    period: '2026',
+    links: [],
+    summary: 'An LLM-powered job matching and document generation engine.',
+    points: [
+      'Pulls postings from 8 ATS platform APIs (Greenhouse, Lever, Ashby, Workday and more) with automatic source detection, normalization, SQLite deduplication and weighted relevance scoring.',
+      'A grounded generation layer on the Claude API writes tailored, ATS-safe PDF documents from a verified fact bank, and a validation guardrail blocks hallucinated technologies and unverifiable metrics before output.',
+    ],
+    stack: ['Python', 'Claude API', 'SQLite', 'LaTeX'],
   },
   {
     name: 'JSCA Player Development',
@@ -161,14 +184,40 @@ export const otherProjects: Project[] = [
 ];
 
 export const skills = [
-  { label: 'Languages', items: ['Python', 'TypeScript', 'JavaScript', 'SQL'] },
-  { label: 'Backend', items: ['FastAPI', 'SQLAlchemy', 'Pydantic', 'REST', 'WebSockets / Socket.IO', 'JWT / OAuth2'] },
-  { label: 'Frontend & mobile', items: ['React', 'Next.js', 'React Native (Expo)', 'TanStack Query'] },
-  { label: 'Data', items: ['PostgreSQL', 'Supabase', 'PostGIS', 'MySQL', 'Redis'] },
-  { label: 'AI', items: ['Gemini API for grading, generation and document parsing'] },
   {
-    label: 'Infrastructure',
-    items: ['AWS (EC2, S3)', 'Docker', 'Nginx', 'Linux servers', 'Cloudflare', 'Vercel', 'GitHub Actions'],
+    label: 'AI & LLMs',
+    items: [
+      'Agentic and multi-agent systems',
+      'RAG',
+      'tool calling',
+      'MCP',
+      'prompt engineering',
+      'evals and guardrails',
+      'fine-tuning (LoRA)',
+    ],
+  },
+  {
+    label: 'LLM tooling',
+    items: [
+      'Claude API',
+      'OpenAI API',
+      'Gemini API',
+      'LangChain',
+      'LangGraph',
+      'CrewAI',
+      'Claude Code',
+      'Langfuse',
+      'LangSmith',
+      'Ollama',
+      'vLLM',
+    ],
+  },
+  { label: 'Backend', items: ['Python', 'FastAPI', 'SQLAlchemy', 'Pydantic', 'REST', 'WebSockets', 'microservices'] },
+  { label: 'Data', items: ['PostgreSQL', 'pgvector', 'Pinecone', 'Qdrant', 'Supabase', 'MySQL', 'Redis'] },
+  { label: 'Frontend & mobile', items: ['React', 'TypeScript', 'Next.js', 'React Native (Expo)'] },
+  {
+    label: 'Cloud & DevOps',
+    items: ['AWS (EC2, S3, IAM)', 'Docker', 'Nginx', 'Cloudflare', 'Linux', 'GitHub Actions', 'OAuth2 / JWT / RBAC'],
   },
 ];
 

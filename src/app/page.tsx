@@ -61,6 +61,7 @@ const personJsonLd = {
   '@type': 'Person',
   name: profile.name,
   jobTitle: profile.title,
+  description: profile.summary,
   email: `mailto:${profile.email}`,
   url: profile.siteUrl,
   image: `${profile.siteUrl}headshot.jpg`,
@@ -84,8 +85,9 @@ export default function Home() {
           <p className="headline">
             <span>{profile.title}</span>
             <span className="headline-sep"> · </span>
-            <span>{profile.location}</span>
+            <span>{profile.focus}</span>
           </p>
+          <p className="headline">{profile.location}</p>
         </div>
         <div className="intro-body">
           <p className="summary">{profile.summary}</p>
@@ -103,6 +105,9 @@ export default function Home() {
             ))}
           </ul>
           <ul className="links">
+            <li>
+              <a href={`${basePath}/${profile.resume}`}>Résumé (PDF)</a>
+            </li>
             <li>
               <a href={`mailto:${profile.email}`}>{profile.email}</a>
             </li>
@@ -131,6 +136,7 @@ export default function Home() {
                   </h3>
                   <span className="entry-meta">{job.period}</span>
                 </div>
+                {job.note && <p className="entry-sub">{job.note}</p>}
                 <ul className="points">
                   {job.points.map((point) => (
                     <li key={point}>{point}</li>

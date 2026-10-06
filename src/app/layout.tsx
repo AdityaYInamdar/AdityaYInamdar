@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import { profile } from '@/content';
 import './globals.css';
 
-const description = `${profile.name}, ${profile.title.toLowerCase()} in ${profile.location}. ${profile.summary}`;
+const description = `${profile.name}, ${profile.title.toLowerCase()} in ${profile.location}. ${profile.focus}.`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(profile.siteUrl),
