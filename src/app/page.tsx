@@ -7,11 +7,12 @@ import {
   profile,
   skills,
   type Link,
+  type Project,
 } from '@/content';
 
 const basePath = '/AdityaYInamdar';
 
-function ExternalLink({ link }: { link: Link }) {
+function TextLink({ link }: { link: Link }) {
   const external = link.href.startsWith('http');
   return (
     <a href={link.href} {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>
@@ -20,37 +21,54 @@ function ExternalLink({ link }: { link: Link }) {
   );
 }
 
-function ContactLinks() {
+function LinkSuffix({ links }: { links: Link[] }) {
   return (
-    <ul className="links">
-      <li>
-        <a href={`mailto:${profile.email}`}>{profile.email}</a>
-      </li>
-      <li>
-        <ExternalLink link={{ label: 'LinkedIn', href: profile.linkedin }} />
-      </li>
-      <li>
-        <ExternalLink link={{ label: 'GitHub', href: profile.github }} />
-      </li>
-      <li>
-        <a href={`tel:${profile.phone.replace(/\s/g, '')}`}>{profile.phone}</a>
-      </li>
-    </ul>
+    <>
+      {links.map((link) => (
+        <span key={link.href}>
+          {' · '}
+          <TextLink link={link} />
+        </span>
+      ))}
+    </>
   );
 }
 
-export default function Home() {
-  const personJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Person',
-    name: profile.name,
-    jobTitle: profile.title,
-    email: `mailto:${profile.email}`,
-    url: profile.siteUrl,
-    address: { '@type': 'PostalAddress', addressLocality: 'Pune', addressCountry: 'IN' },
-    sameAs: [profile.github, profile.linkedin],
-  };
+function ProjectList({ label, projects }: { label: string; projects: Project[] }) {
+  return (
+    <div className="group">
+      <h3 className="group-label">{label}</h3>
+      <ul className="list">
+        {projects.map((project) => (
+          <li key={project.name}>
+            <div className="entry-head">
+              <span>
+                <strong>{project.name}</strong>
+                <LinkSuffix links={project.links} />
+              </span>
+              <span className="entry-meta">{project.period}</span>
+            </div>
+            <p className="entry-sub">{project.summary}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
 
+const personJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: profile.name,
+  jobTitle: profile.title,
+  email: `mailto:${profile.email}`,
+  url: profile.siteUrl,
+  image: `${profile.siteUrl}headshot.jpg`,
+  address: { '@type': 'PostalAddress', addressLocality: 'Pune', addressCountry: 'IN' },
+  sameAs: [profile.github, profile.linkedin],
+};
+
+export default function Home() {
   return (
     <div className="page">
       <script
@@ -60,12 +78,16 @@ export default function Home() {
 
       <header className="intro">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={`${basePath}/headshot.jpg`} alt={profile.name} width={88} height={88} />
-        <div>
+        <img className="photo" src={`${basePath}/headshot.jpg`} alt={profile.name} width={88} height={88} />
+        <div className="identity">
           <h1>{profile.name}</h1>
           <p className="headline">
-            {profile.title} · {profile.location}
+            <span>{profile.title}</span>
+            <span className="headline-sep"> · </span>
+            <span>{profile.location}</span>
           </p>
+        </div>
+        <div className="intro-body">
           <p className="summary">{profile.summary}</p>
           <ul className="now">
             {profile.now.map((item) => (
@@ -74,13 +96,26 @@ export default function Home() {
                 {item.link && (
                   <>
                     {' '}
-                    <ExternalLink link={item.link} />
+                    <TextLink link={item.link} />
                   </>
                 )}
               </li>
             ))}
           </ul>
-          <ContactLinks />
+          <ul className="links">
+            <li>
+              <a href={`mailto:${profile.email}`}>{profile.email}</a>
+            </li>
+            <li>
+              <TextLink link={{ label: 'LinkedIn', href: profile.linkedin }} />
+            </li>
+            <li>
+              <TextLink link={{ label: 'GitHub', href: profile.github }} />
+            </li>
+            <li>
+              <a href={`tel:${profile.phone.replace(/\s/g, '')}`}>{profile.phone}</a>
+            </li>
+          </ul>
         </div>
       </header>
 
@@ -119,12 +154,7 @@ export default function Home() {
                   </div>
                   <p className="entry-sub">
                     {project.role}
-                    {project.links.map((link) => (
-                      <span key={link.href}>
-                        {' · '}
-                        <ExternalLink link={link} />
-                      </span>
-                    ))}
+                    <LinkSuffix links={project.links} />
                   </p>
                   <p>{project.summary}</p>
                   <ul className="points">
@@ -136,54 +166,8 @@ export default function Home() {
                 </article>
               ))}
             </div>
-
-            {clientWork.length > 0 && (
-            <div className="group">
-              <h3 className="group-label">Client websites</h3>
-              <ul className="list">
-                {clientWork.map((site) => (
-                  <li key={site.name}>
-                    <div className="entry-head">
-                      <span>
-                        <strong>{site.name}</strong>
-                        {site.link && (
-                          <>
-                            {' · '}
-                            <ExternalLink link={site.link} />
-                          </>
-                        )}
-                      </span>
-                      <span className="entry-meta">{site.period}</span>
-                    </div>
-                    <p className="entry-sub">{site.summary}</p>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            )}
-
-            <div className="group">
-              <h3 className="group-label">Other projects</h3>
-              <ul className="list">
-                {otherProjects.map((project) => (
-                  <li key={project.name}>
-                    <div className="entry-head">
-                      <span>
-                        <strong>{project.name}</strong>
-                        {project.links.map((link) => (
-                          <span key={link.href}>
-                            {' · '}
-                            <ExternalLink link={link} />
-                          </span>
-                        ))}
-                      </span>
-                      <span className="entry-meta">{project.period}</span>
-                    </div>
-                    <p className="entry-sub">{project.summary}</p>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <ProjectList label="Freelance client work" projects={clientWork} />
+            <ProjectList label="Other projects" projects={otherProjects} />
           </div>
         </section>
 
@@ -191,7 +175,7 @@ export default function Home() {
           <h2>Skills</h2>
           <dl className="skills">
             {skills.map((row) => (
-              <div key={row.label} style={{ display: 'contents' }}>
+              <div className="skill-row" key={row.label}>
                 <dt>{row.label}</dt>
                 <dd>{row.items.join(', ')}</dd>
               </div>
@@ -217,8 +201,8 @@ export default function Home() {
 
       <footer className="footer" id="contact">
         <p>
-          Open to full-time roles and freelance work. The fastest way to reach me is email:{' '}
-          <a href={`mailto:${profile.email}`}>{profile.email}</a>.
+          Open to full-time roles and freelance projects. Email is the fastest way to reach me:{' '}
+          <a href={`mailto:${profile.email}`}>{profile.email}</a>
         </p>
       </footer>
     </div>

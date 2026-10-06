@@ -2,9 +2,22 @@
 
 export type Link = { label: string; href: string };
 
+export type Project = {
+  name: string;
+  period: string;
+  summary: string;
+  links: Link[];
+};
+
+export type FeaturedProject = Project & {
+  role: string;
+  points: string[];
+  stack: string[];
+};
+
 export const profile = {
   name: 'Aditya Inamdar',
-  title: 'Software Engineer',
+  title: 'Full-Stack Software Engineer',
   location: 'Pune, India',
   siteUrl: 'https://adityayinamdar.github.io/AdityaYInamdar/',
   email: 'aditya.inamdar10@gmail.com',
@@ -12,14 +25,14 @@ export const profile = {
   github: 'https://github.com/AdityaYInamdar',
   linkedin: 'https://www.linkedin.com/in/adityyinamdar',
   summary:
-    'Full-stack engineer with 3+ years of building production systems in Python, FastAPI, React and PostgreSQL. I build products end to end, from the database schema to deployment, for my employers, for clients, and for my own company.',
+    'I’ve spent nearly four years shipping production systems in Python, FastAPI, React and PostgreSQL. I take products from database schema to deployment, at my day job, for freelance clients in India and the UK, and for my own startup.',
   now: [
     { text: 'Software Engineer at Metron Security.' },
     {
       text: 'Building ProctoHire, a proctored assessment and hiring platform:',
       link: { label: 'proctohire.com', href: 'https://proctohire.com' },
     },
-    { text: 'Shipping an iOS coaching app for a UK cricket academy to the App Store.' },
+    { text: 'Releasing an iOS coaching app for a UK cricket academy on the App Store.' },
   ] as { text: string; link?: Link }[],
 };
 
@@ -48,14 +61,14 @@ export const experience = [
   },
 ];
 
-export const featuredProjects = [
+export const featuredProjects: FeaturedProject[] = [
   {
     name: 'ProctoHire',
     role: 'My own product, built end to end',
     period: 'Live since 2026',
-    links: [{ label: 'proctohire.com', href: 'https://proctohire.com' }] as Link[],
+    links: [{ label: 'proctohire.com', href: 'https://proctohire.com' }],
     summary:
-      'A proctored assessment and hiring platform. Companies run technical tests and interviews, review integrity evidence, and move candidates from invite to offer. In production with paying customers; 743 candidate invitations sent in the 90 days to September 2026.',
+      'A proctored assessment and hiring platform. Companies run technical tests and interviews, review integrity evidence, and move candidates from invite to offer. It is in production with paying customers and sent 743 candidate invitations in the 90 days to September 2026.',
     points: [
       'Integrity engine: tab-switch, focus and copy-paste tracking, webcam and screen clips, server-side detection of pasted code from keystroke logs, and keystroke replay, combined into a 0–100 integrity score per attempt.',
       'MCQ, SQL, Python, JavaScript, C++, spreadsheet and descriptive questions; code runs against test cases in 22 languages. Gemini grades open-ended answers, generates tests and parses resumes.',
@@ -64,61 +77,99 @@ export const featuredProjects = [
     stack: ['React', 'TypeScript', 'FastAPI', 'Socket.IO', 'PostgreSQL (Supabase)', 'Gemini API', 'Nginx', 'Hetzner', 'Cloudflare'],
   },
   {
-    name: 'JSCA Player Development (iOS app)',
-    role: 'Client: Jameel Stuart Cricket Academy, Bolton, UK',
+    name: 'JSCA Player Development',
+    role: 'iOS app for Jameel Stuart Cricket Academy, Bolton, UK',
     period: 'Aug 2026 – Present',
-    links: [] as Link[],
+    links: [],
     summary:
-      'A coaching app with separate coach, parent and player accounts, built around the academy\'s player-development method. App Store release in progress.',
+      'A coaching app with separate coach, parent and player accounts, built around the academy’s player-development method. The App Store release is in progress.',
     points: [
-      'Assessments across five skill areas roll up into a Skill Index with a radar chart and progress between 28-day training blocks of drills and homework.',
-      'Coaches log a session by typing or dictating one sentence and AI drafts the rest; match logging covers batting and bowling stats with a wagon wheel.',
-      'Parents and players get notes, videos, homework and push notifications that open the right screen. Row-level security on every table keeps each family\'s data private.',
+      'Assessments across five skill areas roll up into a Skill Index with a radar chart, tracked across 28-day training blocks of drills and homework.',
+      'Coaches log a session by typing or dictating one sentence and AI drafts the rest. Match logging covers batting and bowling stats with a wagon wheel.',
+      'Parents and players see notes, videos and homework, with push notifications that open the right screen. Row-level security on every table keeps each family’s data private.',
     ],
     stack: ['Expo', 'React Native', 'TypeScript', 'Supabase (Postgres, RLS, Edge Functions)', 'Gemini API'],
   },
 ];
 
-export const clientWork: { name: string; summary: string; period: string; link?: Link }[] = [
+export const clientWork: Project[] = [
+  {
+    name: 'Nourish Agro',
+    period: 'Aug 2026',
+    links: [{ label: 'nourishagro.com', href: 'https://nourishagro.com' }],
+    summary:
+      'Rebuilt the online shop of a Pune organic food brand after its WordPress store was hacked: 90 products with pack-size pricing re-checked on the server, WhatsApp ordering, and a domain cutover that kept company email running. Next.js, Vercel.',
+  },
+  {
+    name: 'The Modern Guitar Mentorship',
+    period: 'Jul – Sep 2026',
+    links: [{ label: 'varadguitar.com', href: 'https://varadguitar.com' }],
+    summary:
+      'Sales funnel for a jazz guitar mentor: email-gated masterclass, MailerLite nurture emails, a 16-question application with Calendly booking, and Meta Pixel and UTM conversion tracking. Vercel serverless functions.',
+  },
   {
     name: 'Jameel Stuart Cricket Academy',
-    period: '2026',
-    link: { label: 'jameelstuartcricketacademy.com', href: 'https://www.jameelstuartcricketacademy.com' },
+    period: 'Jul – Aug 2026',
+    links: [{ label: 'jameelstuartcricketacademy.com', href: 'https://www.jameelstuartcricketacademy.com' }],
     summary:
-      'Website for a cricket academy in Bolton, UK: eight programme pages with WhatsApp enquiries, structured-data SEO, and a scroll-driven 3D cricket scene. Next.js, Three.js, Vercel.',
+      'Website for a cricket academy in Bolton, UK: eight programme pages with WhatsApp enquiries, structured-data SEO and a scroll-driven 3D cricket scene. Next.js, Three.js, Vercel.',
+  },
+  {
+    name: 'Cravorii Indian Lounge & Bar',
+    period: '2026',
+    links: [{ label: 'cravorii.com', href: 'https://cravorii.com' }],
+    summary: 'Restaurant website in Bury, UK, with menus, a gallery and online table reservations. Next.js, Vercel.',
+  },
+  {
+    name: 'Website support',
+    period: 'Sep 2026 – Present',
+    links: [],
+    summary:
+      'Ongoing support for six restaurants and venues in the UK and Switzerland, including moving one client’s hosting and domain into their own name with no email downtime.',
   },
 ];
 
-export const otherProjects = [
+export const otherProjects: Project[] = [
+  {
+    name: 'Carpool',
+    period: 'Aug 2026',
+    links: [],
+    summary:
+      'Android ride-sharing app where riders join part of a host’s route. PostGIS matching finds where a rider joins and leaves the route, pickup points are blurred for privacy, and fares are split per seat. Expo, Supabase, PostGIS, OSRM.',
+  },
   {
     name: 'SalaryIQ',
-    period: '2026',
-    links: [{ label: 'GitHub', href: 'https://github.com/AdityaYInamdar/salary-management' }] as Link[],
+    period: 'May 2026',
+    links: [{ label: 'GitHub', href: 'https://github.com/AdityaYInamdar/salary-management' }],
     summary:
-      'Salary management tool for 10,000 employees: paginated employee CRUD, salary insights by country, role and department, and a KPI dashboard. FastAPI, async SQLAlchemy, Next.js.',
+      'Salary management for 10,000 employees: paginated employee CRUD, salary insights by country, role and department, and a KPI dashboard. FastAPI, async SQLAlchemy, Next.js.',
   },
   {
     name: 'Multi-View Data Explorer',
-    period: '2026',
-    links: [{ label: 'GitHub', href: 'https://github.com/AdityaYInamdar/MultiViewDataExplorer' }] as Link[],
+    period: 'Mar 2026',
+    links: [{ label: 'GitHub', href: 'https://github.com/AdityaYInamdar/MultiViewDataExplorer' }],
     summary:
       'One dataset shown as a synced table, chart and JSON view with shared filters, virtualized to stay fast at 1M+ rows. React, TypeScript, Vite.',
   },
   {
     name: 'Query Reports',
     period: '2025',
-    links: [{ label: 'GitHub', href: 'https://github.com/AdityaYInamdar/query-reports' }] as Link[],
+    links: [{ label: 'GitHub', href: 'https://github.com/AdityaYInamdar/query-reports' }],
     summary:
-      'No-code SQL report builder: saved queries with variables turn into filter forms, with per-column filtering and styled Excel export. Used by the operations team at Integrated Active Monitoring.',
+      'No-code SQL report builder: saved queries with variables become filter forms, with per-column filtering and styled Excel export. Used by the operations team at Integrated Active Monitoring.',
   },
 ];
 
 export const skills = [
   { label: 'Languages', items: ['Python', 'TypeScript', 'JavaScript', 'SQL'] },
-  { label: 'Backend', items: ['FastAPI', 'SQLAlchemy', 'Pydantic', 'REST', 'WebSockets', 'JWT / OAuth2'] },
-  { label: 'Frontend', items: ['React', 'Next.js', 'TanStack Query'] },
-  { label: 'Data', items: ['PostgreSQL', 'MySQL', 'Redis', 'Supabase'] },
-  { label: 'Infrastructure', items: ['AWS (EC2, S3)', 'Docker', 'Nginx', 'Linux', 'GitHub Actions'] },
+  { label: 'Backend', items: ['FastAPI', 'SQLAlchemy', 'Pydantic', 'REST', 'WebSockets / Socket.IO', 'JWT / OAuth2'] },
+  { label: 'Frontend & mobile', items: ['React', 'Next.js', 'React Native (Expo)', 'TanStack Query'] },
+  { label: 'Data', items: ['PostgreSQL', 'Supabase', 'PostGIS', 'MySQL', 'Redis'] },
+  { label: 'AI', items: ['Gemini API for grading, generation and document parsing'] },
+  {
+    label: 'Infrastructure',
+    items: ['AWS (EC2, S3)', 'Docker', 'Nginx', 'Linux servers', 'Cloudflare', 'Vercel', 'GitHub Actions'],
+  },
 ];
 
 export const education = [
