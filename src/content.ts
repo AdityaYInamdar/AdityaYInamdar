@@ -16,9 +16,10 @@ export const profile = {
   now: [
     { text: 'Software Engineer at Metron Security.' },
     {
-      text: 'Building ProctoHire, a technical hiring and assessment platform.',
+      text: 'Building ProctoHire, a proctored assessment and hiring platform:',
       link: { label: 'proctohire.com', href: 'https://proctohire.com' },
     },
+    { text: 'Shipping an iOS coaching app for a UK cricket academy to the App Store.' },
   ] as { text: string; link?: Link }[],
 };
 
@@ -50,20 +51,43 @@ export const experience = [
 export const featuredProjects = [
   {
     name: 'ProctoHire',
-    role: 'Founder and sole engineer',
-    period: '2025 – Present',
+    role: 'My own product, built end to end',
+    period: 'Live since 2026',
     links: [{ label: 'proctohire.com', href: 'https://proctohire.com' }] as Link[],
     summary:
-      'A remote technical interview and assessment platform: recruiters create tests, candidates take them in a proctored browser session, and results are graded automatically.',
+      'A proctored assessment and hiring platform. Companies run technical tests and interviews, review integrity evidence, and move candidates from invite to offer. In production with paying customers; 743 candidate invitations sent in the 90 days to September 2026.',
     points: [
-      'Five assessment types (Python, SQL, JavaScript, MCQ, descriptive) with sandboxed in-browser code execution.',
-      'Real-time proctoring over WebSockets, role-based access for admins, recruiters and candidates, and automated plus manual grading.',
+      'Integrity engine: tab-switch, focus and copy-paste tracking, webcam and screen clips, server-side detection of pasted code from keystroke logs, and keystroke replay, combined into a 0–100 integrity score per attempt.',
+      'MCQ, SQL, Python, JavaScript, C++, spreadsheet and descriptive questions; code runs against test cases in 22 languages. Gemini grades open-ended answers, generates tests and parses resumes.',
+      'Multi-tenant SaaS with hiring pipelines (automatic stage moves, campus drives with bulk invites, one-way video interviews, online offer letters), signed webhooks and a public API.',
     ],
-    stack: ['FastAPI', 'React', 'TypeScript', 'PostgreSQL (Supabase)', 'Nginx', 'Hetzner'],
+    stack: ['React', 'TypeScript', 'FastAPI', 'Socket.IO', 'PostgreSQL (Supabase)', 'Gemini API', 'Nginx', 'Hetzner', 'Cloudflare'],
+  },
+  {
+    name: 'JSCA Player Development (iOS app)',
+    role: 'Client: Jameel Stuart Cricket Academy, Bolton, UK',
+    period: 'Aug 2026 – Present',
+    links: [] as Link[],
+    summary:
+      'A coaching app with separate coach, parent and player accounts, built around the academy\'s player-development method. App Store release in progress.',
+    points: [
+      'Assessments across five skill areas roll up into a Skill Index with a radar chart and progress between 28-day training blocks of drills and homework.',
+      'Coaches log a session by typing or dictating one sentence and AI drafts the rest; match logging covers batting and bowling stats with a wagon wheel.',
+      'Parents and players get notes, videos, homework and push notifications that open the right screen. Row-level security on every table keeps each family\'s data private.',
+    ],
+    stack: ['Expo', 'React Native', 'TypeScript', 'Supabase (Postgres, RLS, Edge Functions)', 'Gemini API'],
   },
 ];
 
-export const clientWork: { name: string; summary: string; period: string; link?: Link }[] = [];
+export const clientWork: { name: string; summary: string; period: string; link?: Link }[] = [
+  {
+    name: 'Jameel Stuart Cricket Academy',
+    period: '2026',
+    link: { label: 'jameelstuartcricketacademy.com', href: 'https://www.jameelstuartcricketacademy.com' },
+    summary:
+      'Website for a cricket academy in Bolton, UK: eight programme pages with WhatsApp enquiries, structured-data SEO, and a scroll-driven 3D cricket scene. Next.js, Three.js, Vercel.',
+  },
+];
 
 export const otherProjects = [
   {
