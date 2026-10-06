@@ -85,7 +85,8 @@ export default function Home() {
           <p className="headline">
             <span>{profile.title}</span>
             <span className="headline-sep"> · </span>
-            <span>{profile.focus}</span>
+            {/* Non-breaking hyphen keeps "full-stack" together when the line wraps. */}
+            <span>{profile.focus.replace('full-stack', 'full\u2011stack')}</span>
           </p>
           <p className="headline">{profile.location}</p>
         </div>
@@ -162,7 +163,7 @@ export default function Home() {
                     {project.role}
                     <LinkSuffix links={project.links} />
                   </p>
-                  <p>{project.summary}</p>
+                  {project.summary && <p>{project.summary}</p>}
                   <ul className="points">
                     {project.points.map((point) => (
                       <li key={point}>{point}</li>
@@ -172,7 +173,7 @@ export default function Home() {
                 </article>
               ))}
             </div>
-            <ProjectList label="Freelance client work" projects={clientWork} />
+            <ProjectList label="Client work" projects={clientWork} />
             <ProjectList label="Other projects" projects={otherProjects} />
           </div>
         </section>

@@ -2,7 +2,9 @@ import type { Metadata, Viewport } from 'next';
 import { profile } from '@/content';
 import './globals.css';
 
-const description = `${profile.name}, ${profile.title.toLowerCase()} in ${profile.location}. ${profile.focus}.`;
+// Lowercase the focus line's first word ("Applied") but leave acronyms ("AI") alone.
+const focus = /^[A-Z][a-z]/.test(profile.focus) ? profile.focus[0].toLowerCase() + profile.focus.slice(1) : profile.focus;
+const description = `${profile.name} is a ${profile.title.toLowerCase()} in ${profile.location}, focused on ${focus}.`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(profile.siteUrl),

@@ -1,12 +1,12 @@
 ### Hi, I'm Aditya
 
-I'm a full-stack software engineer in Pune, India. I've spent nearly four years shipping production systems in Python, FastAPI, React and PostgreSQL.
+I'm a senior software engineer in Pune, India. I've spent 3+ years shipping production systems and now specialize in applied AI: agentic LLM workflows on the Claude, OpenAI and Gemini APIs. I build on a full-stack base of Python, FastAPI, React, PostgreSQL and AWS.
 
-- Software Engineer at **Metron Security**.
-- Building **[ProctoHire](https://proctohire.com)**, a proctored assessment and hiring platform.
-- Releasing an iOS coaching app for a UK cricket academy on the App Store.
+- Senior Software Engineer at **Metron Security**, building LLM-powered delivery automation.
+- Building **[ProctoHire](https://proctohire.com)**, my own proctored assessment and hiring platform.
+- Freelancing for Indian and UK clients, including an iOS cricket coaching app awaiting App Store approval.
 
-**Website:** [adityayinamdar.github.io/AdityaYInamdar](https://adityayinamdar.github.io/AdityaYInamdar/) · **LinkedIn:** [adityyinamdar](https://www.linkedin.com/in/adityyinamdar) · **Email:** [aditya.inamdar10@gmail.com](mailto:aditya.inamdar10@gmail.com)
+**Website:** [adityayinamdar.github.io/AdityaYInamdar](https://adityayinamdar.github.io/AdityaYInamdar/) · **Résumé:** [PDF](https://adityayinamdar.github.io/AdityaYInamdar/Aditya_Inamdar_Resume.pdf) · **LinkedIn:** [adityyinamdar](https://www.linkedin.com/in/adityyinamdar) · **Email:** [aditya.inamdar10@gmail.com](mailto:aditya.inamdar10@gmail.com)
 
 ---
 

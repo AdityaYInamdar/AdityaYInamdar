@@ -9,7 +9,8 @@ export type Project = {
   links: Link[];
 };
 
-export type FeaturedProject = Project & {
+export type FeaturedProject = Omit<Project, 'summary'> & {
+  summary?: string;
   role: string;
   points: string[];
   stack: string[];
@@ -27,14 +28,14 @@ export const profile = {
   github: 'https://github.com/AdityaYInamdar',
   linkedin: 'https://www.linkedin.com/in/adityyinamdar',
   summary:
-    'I’ve spent 3+ years shipping production systems and now focus on applied AI: agentic LLM workflows on the Claude, OpenAI and Gemini APIs, on a full-stack base of Python, FastAPI, React, PostgreSQL and AWS. Outside my day job I run my own hiring platform and build web and mobile products for clients in India and the UK.',
+    'I’ve spent 3+ years shipping production systems and now specialize in applied AI: agentic LLM workflows on the Claude, OpenAI and Gemini APIs. I build on a full-stack base of Python, FastAPI, React, PostgreSQL and AWS.',
   now: [
-    { text: 'Senior Software Engineer at Metron Security, building LLM-powered delivery automation.' },
+    { text: 'Building LLM delivery automation at Metron Security (team productivity up 50–60%).' },
     {
-      text: 'Building ProctoHire, a proctored assessment and hiring platform:',
+      text: 'Building ProctoHire, my own proctored assessment and hiring platform:',
       link: { label: 'proctohire.com', href: 'https://proctohire.com' },
     },
-    { text: 'Releasing an iOS coaching app for a UK cricket academy on the App Store.' },
+    { text: 'Freelancing for Indian and UK clients, including an iOS app awaiting App Store approval.' },
   ] as { text: string; link?: Link }[],
 };
 
@@ -52,10 +53,10 @@ export const experience: {
     period: 'Jun 2025 – Present',
     note: 'Promoted from Software Engineer in May 2026.',
     points: [
-      'Built a multi-stage, LLM-powered software delivery pipeline on the Anthropic Claude API that automates research, documentation, spec writing, validation and deployment, raising team productivity by 50–60%.',
+      'Built a multi-stage, LLM-powered software delivery pipeline on the Anthropic Claude API that automates research, documentation, spec writing, validation and deployment, raising team productivity 50–60%.',
       'Designed an agentic system that routes natural-language commands to the right automation through tool calling and context-injected instructions, so non-technical teammates can run multi-step workflows end to end.',
       'Codified reusable AI engineering workflows with Claude Code, custom Claude Skills and MCP integrations, cutting delivery time for each new automation.',
-      'Built Python integration services for a CrowdStrike-based security plugin platform across REST APIs with varied auth (OAuth2, API key, HMAC, AWS SigV4), with retries, structured logging and CI/CD on AWS.',
+      'Built Python integrations for a CrowdStrike-based security plugin platform across REST APIs with varied auth (OAuth2, API key, HMAC, AWS SigV4), shipped on AWS with CI/CD.',
     ],
     stack: ['Python', 'Claude API', 'Claude Code', 'MCP', 'FastAPI', 'AWS', 'Docker', 'GitHub Actions'],
   },
@@ -64,9 +65,9 @@ export const experience: {
     role: 'Full Stack Engineer',
     period: 'Nov 2022 – Jun 2025',
     points: [
-      'Owned every layer of a production ERP with 30+ modules used daily by 100+ field engineers (schema, FastAPI backend, React/TypeScript frontend, deployment), with zero downtime over 2.5 years.',
-      'Designed 40+ FastAPI endpoints on a three-layer architecture at p95 under 200ms. Fixed missing indexes and N+1 queries to cut report queries from 8s to under 3s, and added Redis caching that cut database load ~40%.',
-      'Implemented JWT auth with three-role RBAC (zero access-control incidents), drove pytest coverage above 90% on core logic, and refactored ~3,000 lines of procedural code into a service layer.',
+      'Owned every layer (schema, FastAPI, React/TypeScript, deployment) of a 30+ module production ERP used daily by 100+ field engineers, with zero downtime over 2.5 years.',
+      'Designed 40+ FastAPI endpoints (p95 under 200ms), cut report queries from 8s to under 3s by fixing indexes and N+1 ORM queries, and cut database load ~40% with Redis caching.',
+      'Implemented JWT auth with three-role RBAC (zero access-control incidents), drove pytest coverage above 90% on core logic, and refactored ~3,000 lines into a service layer.',
     ],
     stack: ['Python', 'FastAPI', 'React', 'TypeScript', 'PostgreSQL', 'Redis', 'WebSockets'],
   },
@@ -76,42 +77,40 @@ export const featuredProjects: FeaturedProject[] = [
   {
     name: 'ProctoHire',
     role: 'My own product, built end to end',
-    period: 'Live since 2026',
+    period: '2026 – Present',
     links: [{ label: 'proctohire.com', href: 'https://proctohire.com' }],
     summary:
-      'A proctored assessment and hiring platform. Companies run technical tests and interviews, review integrity evidence, and move candidates from invite to offer. It is live in production and sent 743 candidate invitations in the 90 days to September 2026.',
+      'A proctored assessment and hiring platform, in production with a paying customer and 743 candidate invitations sent in the 90 days to September 2026.',
     points: [
-      'Integrity engine: tab-switch, focus and copy-paste tracking, webcam and screen clips, server-side detection of pasted code from keystroke logs, and keystroke replay, combined into a 0–100 integrity score per attempt.',
-      'MCQ, SQL, Python, JavaScript, C++, spreadsheet and descriptive questions; code runs against test cases in 22 languages. Gemini grades open-ended answers, generates tests and parses resumes.',
-      'Multi-tenant SaaS with hiring pipelines (automatic stage moves, campus drives with bulk invites, one-way video interviews, online offer letters), signed webhooks and a public API.',
+      'Integrity engine: tab-switch, focus and copy-paste tracking with a 0–100 score per attempt, plus webcam and screen clips, pasted-code detection and keystroke replay.',
+      'Gemini grades open-ended answers, generates tests and parses résumés; code questions run against test cases in 22 languages.',
+      'Multi-tenant SaaS with automated hiring stages, campus drives, one-way video interviews, online offer letters, signed webhooks and a public API.',
     ],
-    stack: ['React', 'TypeScript', 'FastAPI', 'Socket.IO', 'PostgreSQL (Supabase)', 'Gemini API', 'Nginx', 'Hetzner', 'Cloudflare'],
+    stack: ['React', 'TypeScript', 'FastAPI', 'Socket.IO', 'Supabase (Postgres)', 'Gemini API', 'Hetzner', 'Cloudflare'],
   },
   {
     name: 'JobPipe',
-    role: 'Personal project',
+    role: 'Personal project: an LLM-powered job matching and document generation engine',
     period: '2026',
     links: [],
-    summary: 'An LLM-powered job matching and document generation engine.',
     points: [
-      'Pulls postings from 8 ATS platform APIs (Greenhouse, Lever, Ashby, Workday and more) with automatic source detection, normalization, SQLite deduplication and weighted relevance scoring.',
-      'A grounded generation layer on the Claude API writes tailored, ATS-safe PDF documents from a verified fact bank, and a validation guardrail blocks hallucinated technologies and unverifiable metrics before output.',
+      'Pulls postings from 8 ATS APIs (Greenhouse, Lever, Ashby, Workday and more), then normalizes, deduplicates in SQLite and ranks them with weighted relevance scoring.',
+      'Grounded generation on the Claude API writes tailored documents from a verified fact bank; a guardrail blocks hallucinated technologies and unverifiable metrics.',
     ],
     stack: ['Python', 'Claude API', 'SQLite', 'LaTeX'],
   },
   {
     name: 'JSCA Player Development',
-    role: 'iOS app for Jameel Stuart Cricket Academy, Bolton, UK',
-    period: 'Aug 2026 – Present',
-    links: [],
+    role: 'Client: a cricket academy in Bolton, UK',
+    period: 'Jul 2026 – Present',
+    links: [{ label: 'jameelstuartcricketacademy.com', href: 'https://www.jameelstuartcricketacademy.com' }],
     summary:
-      'A coaching app with separate coach, parent and player accounts, built around the academy’s player-development method. The App Store release is in progress.',
+      'An iOS coaching app with coach, parent and player accounts, built around the academy’s player-development method, plus the academy’s website. Awaiting App Store approval.',
     points: [
-      'Assessments across five skill areas roll up into a Skill Index with a radar chart, tracked across 28-day training blocks of drills and homework.',
-      'Coaches log a session by typing or dictating one sentence and AI drafts the rest. Match logging covers batting and bowling stats with a wagon wheel.',
-      'Parents and players see notes, videos and homework, with push notifications that open the right screen. Row-level security on every table keeps each family’s data private.',
+      'Coaches log a session by typing or dictating one sentence, and AI drafts the rest; assessments feed a Skill Index compared before and after each 28-day block.',
+      'Parents and players get notes, videos, homework and deep-linked push notifications; row-level security on every table keeps each family’s data private.',
     ],
-    stack: ['Expo', 'React Native', 'TypeScript', 'Supabase (Postgres, RLS, Edge Functions)', 'Gemini API'],
+    stack: ['Expo', 'React Native', 'TypeScript', 'Supabase (Postgres, RLS, Edge Functions)', 'Gemini API', 'Next.js'],
   },
 ];
 
@@ -120,35 +119,13 @@ export const clientWork: Project[] = [
     name: 'Nourish Agro',
     period: 'Aug 2026',
     links: [{ label: 'nourishagro.com', href: 'https://nourishagro.com' }],
-    summary:
-      'Rebuilt the online shop of a Pune organic food brand after its WordPress store was hacked: 90 products with pack-size pricing re-checked on the server, WhatsApp ordering, and a domain cutover that kept company email running. Next.js, Vercel.',
+    summary: 'Rebuilt a Pune organic food brand’s store as a 90-product Next.js shop with WhatsApp ordering.',
   },
   {
     name: 'The Modern Guitar Mentorship',
     period: 'Jul – Sep 2026',
     links: [{ label: 'varadguitar.com', href: 'https://varadguitar.com' }],
-    summary:
-      'Sales funnel for a jazz guitar mentor: email-gated masterclass, MailerLite nurture emails, a 16-question application with Calendly booking, and Meta Pixel and UTM conversion tracking. Vercel serverless functions.',
-  },
-  {
-    name: 'Jameel Stuart Cricket Academy',
-    period: 'Jul – Aug 2026',
-    links: [{ label: 'jameelstuartcricketacademy.com', href: 'https://www.jameelstuartcricketacademy.com' }],
-    summary:
-      'Website for a cricket academy in Bolton, UK: eight programme pages with WhatsApp enquiries, structured-data SEO and a scroll-driven 3D cricket scene. Next.js, Three.js, Vercel.',
-  },
-  {
-    name: 'Cravorii Indian Lounge & Bar',
-    period: '2026',
-    links: [{ label: 'cravorii.com', href: 'https://cravorii.com' }],
-    summary: 'Restaurant website in Bury, UK, with menus, a gallery and online table reservations. Next.js, Vercel.',
-  },
-  {
-    name: 'Website support',
-    period: 'Sep 2026 – Present',
-    links: [],
-    summary:
-      'Ongoing support for six restaurants and venues in the UK and Switzerland, including moving one client’s hosting and domain into their own name with no email downtime.',
+    summary: 'Lead funnel for a jazz guitar mentor: gated masterclass, email nurture, applications, Calendly.',
   },
 ];
 
@@ -157,29 +134,19 @@ export const otherProjects: Project[] = [
     name: 'Carpool',
     period: 'Aug 2026',
     links: [],
-    summary:
-      'Android ride-sharing app where riders join part of a host’s route. PostGIS matching finds where a rider joins and leaves the route, pickup points are blurred for privacy, and fares are split per seat. Expo, Supabase, PostGIS, OSRM.',
-  },
-  {
-    name: 'SalaryIQ',
-    period: 'May 2026',
-    links: [{ label: 'GitHub', href: 'https://github.com/AdityaYInamdar/salary-management' }],
-    summary:
-      'Salary management for 10,000 employees: paginated employee CRUD, salary insights by country, role and department, and a KPI dashboard. FastAPI, async SQLAlchemy, Next.js.',
+    summary: 'Android ride-sharing app with PostGIS matching of where riders join and leave a host’s route.',
   },
   {
     name: 'Multi-View Data Explorer',
     period: 'Mar 2026',
     links: [{ label: 'GitHub', href: 'https://github.com/AdityaYInamdar/MultiViewDataExplorer' }],
-    summary:
-      'One dataset shown as a synced table, chart and JSON view with shared filters, virtualized to stay fast at 1M+ rows. React, TypeScript, Vite.',
+    summary: 'Synced table, chart and JSON views of one dataset, virtualized to stay fast at 1M+ rows.',
   },
   {
     name: 'Query Reports',
     period: '2025',
     links: [{ label: 'GitHub', href: 'https://github.com/AdityaYInamdar/query-reports' }],
-    summary:
-      'No-code SQL report builder: saved queries with variables become filter forms, with per-column filtering and styled Excel export. Used by the operations team at Integrated Active Monitoring.',
+    summary: 'No-code SQL report builder with filter forms and Excel export, used at Integrated Active Monitoring.',
   },
 ];
 

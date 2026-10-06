@@ -5,7 +5,6 @@ const nextConfig = {
   assetPrefix: '/AdityaYInamdar/',
   trailingSlash: true,
   reactStrictMode: true,
-  transpilePackages: ['three'],
   images: {
     unoptimized: true,
   },
