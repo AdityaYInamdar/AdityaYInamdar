@@ -80,7 +80,7 @@ export const featuredProjects: FeaturedProject[] = [
     period: '2026 – Present',
     links: [{ label: 'proctohire.com', href: 'https://proctohire.com' }],
     summary:
-      'A proctored assessment and hiring platform, in production with a paying customer and 743 candidate invitations sent in the 90 days to September 2026.',
+      'A proctored assessment and hiring platform, in production with a paying customer and 700+ candidate invitations sent in 90 days.',
     points: [
       'Integrity engine: tab-switch, focus and copy-paste tracking with a 0–100 score per attempt, plus webcam and screen clips, pasted-code detection and keystroke replay.',
       'Gemini grades open-ended answers, generates tests and parses résumés; code questions run against test cases in 22 languages.',
