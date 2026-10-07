@@ -54,7 +54,7 @@ export const experience: {
     note: 'Promoted from Software Engineer in May 2026.',
     points: [
       'Built a multi-stage, LLM-powered software delivery pipeline on the Anthropic Claude API that automates research, documentation, spec writing, validation and deployment, raising team productivity 50–60%.',
-      'Designed an agentic system that routes natural-language commands to the right automation through tool calling and context-injected instructions, so non-technical teammates can run multi-step workflows end to end.',
+      'Designed an agentic system that routes natural-language commands to the right automation through tool calling and context-injected instructions, running multi-step workflows end to end for non-technical teammates.',
       'Codified reusable AI engineering workflows with Claude Code, custom Claude Skills and MCP integrations, cutting delivery time for each new automation.',
       'Built Python integrations for a CrowdStrike-based security plugin platform across REST APIs with varied auth (OAuth2, API key, HMAC, AWS SigV4), shipped on AWS with CI/CD.',
     ],
