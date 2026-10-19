@@ -103,7 +103,10 @@ export const featuredProjects: FeaturedProject[] = [
     name: 'JSCA Player Development',
     role: 'Client: a cricket academy in Bolton, UK',
     period: 'Jul 2026 – Present',
-    links: [{ label: 'jameelstuartcricketacademy.com', href: 'https://www.jameelstuartcricketacademy.com' }],
+    links: [
+      { label: 'App Store', href: 'https://apps.apple.com/app/jsca-player-development/id6818729463' },
+      { label: 'jameelstuartcricketacademy.com', href: 'https://www.jameelstuartcricketacademy.com' },
+    ],
     summary:
       'An iOS coaching app with coach, parent and player accounts, built around the academy’s player-development method, plus the academy’s website.',
     points: [
